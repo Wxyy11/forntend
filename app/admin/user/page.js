@@ -1,110 +1,83 @@
-'use client'
-import { useState } from 'react'
-import Swal from 'sweetalert2'
-import { useRouter } from 'next/navigation'
+'use client';
+import Link from 'next/link'
+import { useEffect, useState } from 'react';
 
-export default function Register() {
-  const router = useRouter()
+export default function Page() {
+  const [items, setItems] = useState([]);
 
-  const [firstname, setFirstname] = useState('')
-  const [fullname, setFullname] = useState('')
-  const [lastname, setLastname] = useState('')
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-    const res = await fetch('http://itdev.cmtc.ac.th:3000/api/users', {
-      method: 'POST',
-      headers: {
-        Accept : 'application/json',
-      },
-      body: JSON.stringify({ firstname, fullname, lastname, username, password }),
-    })
+  useEffect(() => {
 
-    const result = await res.json();
-    console.log(result);
-    if (res.ok) {
-      Swal.fire({
-        icon: 'success',
-        title: '<h3>บันทึกข้อมูลเรียบร้อยแล้ว</h3>',
-        showConfirmButton: false,
-        timer: 2000
-        }).then(function () {
-        router.push('/register')
-      });
-      setFirstname('')
-      setFullname('')
-      setLastname('')
-      setUsername('')
-      setPassword('')
-    } else {
-      Swal.fire({
-        title: 'Error!',
-        text: 'เกิดข้อผิดพลาด!',
-        icon: 'error',
-        confirmButtonText: 'ตกลง'
-      })
+    async function getUsers() {
+      try {
+        const res = await fetch('http://itdev.cmtc.ac.th:3000/api/users');
+        if (!res.ok) {
+          console.error('Failed to fetch data');
+          return;
+        }
+        const data = await res.json();
+        setItems(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     }
-  } catch (error) {
-    Swal.fire({
-      icon: 'error',
-      title: 'ข้อผิดพลาดเครือข่าย',
-      text: 'ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้',
-    })
-  }
-  }
+ 
+  getUsers()
+  const interval  = setInterval(getUsers, 1000);
+  return () => clearInterval(interval);
+}, []);
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-4 border rounded">
-      <h1 className="text-xl font-bold mb-4">สมัครสมาชิก</h1>
-      <form onSubmit={handleSubmit} className="space-y-3">
-        <select name="firstname" onChange={(e) => setFirstname(e.target.value)} className="w-full border p-2 rounded" required>
-          <option value="">คำนำหน้าชื่อ</option>
-          <option value="นาย">นาย</option>
-          <option value="นาง">นาง</option>
-          <option value="นางสาว">นางสาว</option>
-        </select>
-        <input
-          type="text"
-          placeholder="ชื่อ"
-          value={fullname}
-          onChange={(e) => setFullname(e.target.value)}
-          className="w-full border p-2 rounded"
-          required
-        />
-        <input
-          type="text"
-          placeholder="นามสกุล"
-          value={lastname}
-          onChange={(e) => setLastname(e.target.value)}
-          className="w-full border p-2 rounded"
-          required
-        />
-                <input
-          type="text"
-          placeholder="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className="w-full border p-2 rounded"
-          required
-        />
-                <input
-          type="text"
-          placeholder="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full border p-2 rounded"
-          required
-        />
-        <button
-          type="submit"
-          className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-        >
-          สมัครสมาชิก
-        </button>
-      </form>
+    <>
+    <br /><br /><br /><br />
+    <div className="container">
+      <div className="card">
+  <div className="card-header">
+    Users List
+  </div>
+  <div className="card-body">
+  <div className="row">
+      <table className="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th className='col-md-2 text-center'>#</th>
+            <th className='col-md-4'>Firstname</th>
+            <th className='col-md-4'>Fullname</th>
+            <th className='col-md-4'>Lastname</th>
+            <th className='col-md-4'>Username</th>
+            <th className='col-md-4'>Password</th>
+            <th className='col-md-4'>Address</th>
+            <th className='col-md-4'>Sex</th>
+            <th className='col-md-4'>Birthday</th>
+            <th className='col-md-1'>Eidt</th>
+            <th className='col-md-1'>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((item) => (
+            <tr key={item.id}>
+              <td className='text-center'>{item.id}</td>
+              <td>{item.firstname}</td>
+              <td>{item.fullname}</td>
+              <td>{item.lastname}</td>
+              <td>{item.username}</td>
+              <td>{item.password}</td>
+              <td>{item.address}</td>
+              <td>{item.sex}</td>
+              <td>{item.birthday}</td>
+              <td><Link href="" className="btn btn-warning">Edit</Link></td>
+              <td><button className="btn btn-pill btn-danger" type="button"><i className="fa fa-trash"></i>Del</button></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
-  )
+    </div>
+
+    </div>
+    </div>
+    <br /><br />
+
+    </>
+  );
 }
