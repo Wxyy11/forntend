@@ -32,14 +32,13 @@ export default function Login() {
       );
 
       if (foundUser) {
-        // แจ้งเตือนและเปลี่ยนหน้า
         Swal.fire({
           icon: 'success',
           title: 'เข้าสู่ระบบสำเร็จ!',
           showConfirmButton: false,
           timer: 1500,
         }).then(() => {
-          router.push('/home');
+          router.push('/register'); // ✅ เปลี่ยนไปหน้า register
         });
       } else {
         Swal.fire({
