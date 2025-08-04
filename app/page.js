@@ -12,13 +12,13 @@ function Carousel() {
     <div id="carouselExample" className="carousel slide carousel-fade mb-5" data-bs-ride="carousel">
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <Image src="/imagesss.png" className="d-block w-100" alt="Slide 1" width={1920} height={850} priority />
+          <Image src="/ff.jpg" className="d-block w-100" alt="Slide 1" width={1920} height={850} priority />
         </div>
         <div className="carousel-item">
-          <Image src="/imagess.png" className="d-block w-100" alt="Slide 2" width={1920} height={850} />
+          <Image src="/dd.jpg" className="d-block w-100" alt="Slide 2" width={1920} height={850} />
         </div>
         <div className="carousel-item">
-          <Image src="/img01.jpg" className="d-block w-100" alt="Slide 3" width={1920} height={850} />
+          <Image src="/vv.jpg" className="d-block w-100" alt="Slide 3" width={1920} height={850} />
         </div>
       </div>
       <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -46,7 +46,7 @@ function CardSection() {
         <div className="row">
             <div className="col-md-4 mb-4">
                 <div className="card">
-                <img src="/download.png" className="card-img-top img-responsive" alt="..." />
+                <img src="/cc.jpg" className="card-img-top img-responsive" alt="..." />
                 <div className="card-body">
                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
                 </div>
@@ -55,7 +55,7 @@ function CardSection() {
 
             <div className="col-md-4 mb-4">
             <div className="card">
-                <img src="/download.png" className="card-img-top" alt="..." />
+                <img src="/zz.jpg" className="card-img-top" alt="..." />
                 <div className="card-body">
                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
                 </div>
@@ -63,7 +63,7 @@ function CardSection() {
             </div>
             <div className="col-md-4 mb-4">
             <div className="card">
-                <img src="/download.png" className="card-img-top" alt="..." />
+                <img src="/xx.jpg" className="card-img-top" alt="..." />
                 <div className="card-body">
                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
                 </div>
