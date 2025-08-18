@@ -38,7 +38,7 @@ export default function Login() {
           showConfirmButton: false,
           timer: 1500,
         }).then(() => {
-          router.push('/register'); // ✅ เปลี่ยนไปหน้า register
+          router.push('/register');
         });
       } else {
         Swal.fire({
@@ -58,75 +58,85 @@ export default function Login() {
   };
 
   return (
-    <section className="text-center">
+    <section
+      className="d-flex align-items-center justify-content-center vh-100"
+      style={{
+        backgroundImage: "url('https://mdbootstrap.com/img/new/textures/full/171.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        position: 'relative',
+      }}
+    >
+      {/* Overlay มืดบางๆ */}
       <div
-        className="p-5 bg-image"
         style={{
-          backgroundImage: "url('https://mdbootstrap.com/img/new/textures/full/171.jpg')",
-          height: '300px',
+          position: 'absolute',
+          top: 0, left: 0, right: 0, bottom: 0,
+          backgroundColor: 'rgba(0,0,0,0.4)',
         }}
       ></div>
 
+      {/* กล่องฟอร์ม */}
       <div
-        className="card mx-4 mx-md-5 shadow-5-strong bg-body-tertiary"
+        className="card shadow-lg bg-body-tertiary"
         style={{
-          marginTop: '-100px',
-          backdropFilter: 'blur(30px)',
+          width: '100%',
+          maxWidth: '500px',
+          position: 'relative',
+          zIndex: 2,
+          borderRadius: '20px',
         }}
       >
-        <div className="card-body py-5 px-md-5">
-          <div className="row d-flex justify-content-center">
-            <div className="col-lg-6">
-              <h2 className="fw-bold mb-5">เข้าสู่ระบบ</h2>
-              <form onSubmit={handleLogin}>
-                <div className="form-outline mb-4 text-start">
-                  <input
-                    type="text"
-                    id="usernameInput"
-                    className="form-control"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                  />
-                  <label className="form-label" htmlFor="usernameInput">ชื่อผู้ใช้</label>
-                </div>
-
-                <div className="form-outline mb-4 text-start">
-                  <input
-                    type="password"
-                    id="passwordInput"
-                    className="form-control"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-                  <label className="form-label" htmlFor="passwordInput">รหัสผ่าน</label>
-                </div>
-
-                <div className="form-check d-flex justify-content-start mb-4">
-                  <input className="form-check-input me-2" type="checkbox" id="rememberMe" />
-                  <label className="form-check-label" htmlFor="rememberMe">จำฉันไว้</label>
-                </div>
-
-                <p className="small mb-4 text-end">
-                  <a href="#!" className="text-decoration-none">ลืมรหัสผ่าน?</a>
-                </p>
-
-                <button type="submit" className="btn btn-primary btn-block mb-4">
-                  เข้าสู่ระบบ
-                </button>
-
-                <div className="mt-4">
-                  <p className="mb-0">
-                    ยังไม่มีบัญชีใช่ไหม?{' '}
-                    <Link href="/register" className="fw-bold text-decoration-none">
-                      สมัครสมาชิก
-                    </Link>
-                  </p>
-                </div>
-              </form>
+        <div className="card-body p-5">
+          <h2 className="fw-bold mb-5 text-center text-primary">เข้าสู่ระบบ</h2>
+          <form onSubmit={handleLogin}>
+            <div className="form-outline mb-4 text-start">
+              <input
+                type="text"
+                id="usernameInput"
+                className="form-control"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+              <label className="form-label" htmlFor="usernameInput">ชื่อผู้ใช้</label>
             </div>
-          </div>
+
+            <div className="form-outline mb-4 text-start">
+              <input
+                type="password"
+                id="passwordInput"
+                className="form-control"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <label className="form-label" htmlFor="passwordInput">รหัสผ่าน</label>
+            </div>
+
+            <div className="form-check d-flex justify-content-start mb-4">
+              <input className="form-check-input me-2" type="checkbox" id="rememberMe" />
+              <label className="form-check-label" htmlFor="rememberMe">จำฉันไว้</label>
+            </div>
+
+            <p className="small mb-4 text-end">
+              <a href="#!" className="text-decoration-none">ลืมรหัสผ่าน?</a>
+            </p>
+
+            <button type="submit" className="btn btn-primary btn-block w-100 mb-4">
+              เข้าสู่ระบบ
+            </button>
+
+            <div className="text-center">
+              <p className="mb-0">
+                ยังไม่มีบัญชีใช่ไหม?{' '}
+                <Link href="/register" className="fw-bold text-decoration-none">
+                  สมัครสมาชิก
+                </Link>
+              </p>
+            </div>
+          </form>
         </div>
       </div>
     </section>
