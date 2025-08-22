@@ -1,154 +1,220 @@
+// app/page.tsx
 'use client';
-import { useEffect } from 'react';
-import Image from "next/image";
 
-// Carousel Component
-function Carousel() {
+import { useEffect } from 'react';
+import Image from 'next/image';
+
+export default function HomePage() {
   useEffect(() => {
     import('bootstrap/dist/js/bootstrap.bundle.min.js');
   }, []);
 
   return (
-    <div
-      id="carouselExample"
-      className="carousel slide carousel-fade mb-5 shadow-lg rounded"
-      data-bs-ride="carousel"
-      style={{ backgroundColor: '#cceeff', filter: 'brightness(1.1)' }} // สีฟ้าอ่อน
-    >
-      <div className="carousel-inner">
-        <div className="carousel-item active">
-          <Image src="/ff.jpg" className="d-block w-100 rounded" alt="Slide 1" width={1920} height={850} priority />
-        </div>
-        <div className="carousel-item">
-          <Image src="/dd.jpg" className="d-block w-100 rounded" alt="Slide 2" width={1920} height={850} />
-        </div>
-        <div className="carousel-item">
-          <Image src="/vv.jpg" className="d-block w-100 rounded" alt="Slide 3" width={1920} height={850} />
-        </div>
-      </div>
-      <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span className="carousel-control-prev-icon" aria-hidden="true" />
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span className="carousel-control-next-icon" aria-hidden="true" />
-        <span className="visually-hidden">Next</span>
-      </button>
-    </div>
-  );
-}
-
-// Card Section Component
-function CardSection() {
-  const cards = [
-    { img: '/cc.jpg', title: 'Project 1', desc: 'Bright and colorful project 1' },
-    { img: '/zz.jpg', title: 'Project 2', desc: 'Amazing project 2' },
-    { img: '/xx.jpg', title: 'Project 3', desc: 'Creative project 3' },
-  ];
-
-  return (
-    <div className="container-fluid" style={{ backgroundColor: '#cceeff', padding: '2rem 0' }}>
-      <div className="row">
-        <div className="col-md-12 text-center mb-4">
-          <h3 className="text-primary fw-bold" style={{ textShadow: '2px 2px 5px #aaa' }}>Our Projects</h3>
-        </div>
-      </div>
-      <div className="row">
-        {cards.map((card, index) => (
-          <div className="col-md-4 mb-4" key={index}>
-            <div
-              className="card shadow-lg border-0 rounded"
-              style={{ transition: 'transform 0.3s', cursor: 'pointer' }}
-              onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
-              onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
-              <img src={card.img} className="card-img-top rounded" alt={card.title} style={{ filter: 'brightness(1.1)' }} />
-              <div className="card-body text-center">
-                <h5 className="card-title text-success">{card.title}</h5>
-                <p className="card-text text-muted">{card.desc}</p>
-              </div>
-            </div>
+    <>
+      {/* ✅ Carousel */}
+      <div
+        id="carouselExample"
+        className="carousel slide carousel-fade mb-5 shadow-lg rounded"
+        data-bs-ride="carousel"
+        style={{ backgroundColor: '#0d3b2e', filter: 'brightness(1.05)' }}
+      >
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <Image
+              src="/111.png"
+              className="d-block w-100 rounded"
+              alt="Rolex Submariner"
+              width={1920}
+              height={850}
+              priority
+            />
           </div>
-        ))}
+          <div className="carousel-item">
+            <Image
+              src="/222.png"
+              className="d-block w-100 rounded"
+              alt="Rolex Daytona"
+              width={1920}
+              height={850}
+            />
+          </div>
+          <div className="carousel-item">
+            <Image
+              src="/333.png"
+              className="d-block w-100 rounded"
+              alt="Rolex Datejust"
+              width={1920}
+              height={850}
+            />
+          </div>
+        </div>
+        <button
+          className="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="prev"
+        >
+          <span className="carousel-control-prev-icon" aria-hidden="true" />
+          <span className="visually-hidden">Previous</span>
+        </button>
+        <button
+          className="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="next"
+        >
+          <span className="carousel-control-next-icon" aria-hidden="true" />
+          <span className="visually-hidden">Next</span>
+        </button>
       </div>
-    </div>
-  );
-}
 
-// Footer Component
-function Footer() {
-  return (
-    <div className="container-fluid mt-5 shadow-sm" style={{ backgroundColor: '#cceeff', boxShadow: '0 -5px 10px rgba(0,0,0,0.1)' }}>
-      <footer className="py-5">
+      {/* ✅ Rolex Cards */}
+      <div className="container-fluid" style={{ backgroundColor: '#0d3b2e', padding: '3rem 0' }}>
         <div className="row">
-          {[1, 2, 3].map((_, index) => (
-            <div className="col-6 col-md-2 mb-3" key={index}>
-              <h5 className="text-primary fw-bold" style={{ textShadow: '1px 1px 3px #ccc' }}>Section</h5>
-              <ul className="nav flex-column">
-                {["Home", "Features", "Pricing", "FAQs", "About"].map((item, i) => (
-                  <li className="nav-item mb-2" key={i}>
-                    <a href="#" className="nav-link p-0 text-body-secondary">{item}</a>
-                  </li>
-                ))}
-              </ul>
+          <div className="col-md-12 text-center mb-4">
+            <h3
+              className="fw-bold"
+              style={{
+                color: '#d4af37',
+                textShadow: '2px 2px 10px rgba(0,0,0,0.6)',
+              }}
+            >
+              Our Rolex Collection
+            </h3>
+          </div>
+        </div>
+        <div className="row">
+          {[
+            {
+              img: '/rolex1.jpg',
+              title: 'Rolex Submariner',
+              desc: 'Classic luxury diving watch with timeless elegance.',
+            },
+            {
+              img: '/rolex2.jpg',
+              title: 'Rolex Daytona',
+              desc: 'Prestigious chronograph crafted with precision.',
+            },
+            {
+              img: '/rolex3.jpg',
+              title: 'Rolex Datejust',
+              desc: 'Iconic design blending tradition and modernity.',
+            },
+          ].map((card, index) => (
+            <div className="col-md-4 mb-4" key={index}>
+              <div
+                className="card border-0 rounded shadow-lg"
+                style={{
+                  backgroundColor: '#123d2f',
+                  transition: 'transform 0.3s, box-shadow 0.3s',
+                  cursor: 'pointer',
+                  border: '2px solid #d4af37',
+                  height: '450px', // กำหนดความสูงเท่ากัน
+                  display: 'flex',
+                  flexDirection: 'column',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'scale(1.05)';
+                  e.currentTarget.style.boxShadow = '0 8px 20px rgba(212,175,55,0.6)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'scale(1)';
+                  e.currentTarget.style.boxShadow = '0 4px 10px rgba(0,0,0,0.3)';
+                }}
+              >
+                <div style={{ flex: '1 0 auto', position: 'relative' }}>
+                  <Image
+                    src={card.img}
+                    alt={card.title}
+                    fill
+                    style={{ objectFit: 'cover', borderTopLeftRadius: '0.5rem', borderTopRightRadius: '0.5rem' }}
+                  />
+                </div>
+                <div className="card-body text-center" style={{ flex: '0 0 auto' }}>
+                  <h5 className="card-title" style={{ color: '#d4af37' }}>{card.title}</h5>
+                  <p className="card-text text-light">{card.desc}</p>
+                </div>
+              </div>
             </div>
           ))}
-          <div className="col-md-5 offset-md-1 mb-3">
-            <form>
-              <h5 className="text-primary fw-bold" style={{ textShadow: '1px 1px 2px #aaa' }}>Subscribe to our newsletter</h5>
-              <p className="text-muted">Monthly digest of what's new and exciting from us.</p>
-              <div className="d-flex flex-column flex-sm-row w-100 gap-2">
-                <label htmlFor="newsletter1" className="visually-hidden">Email address</label>
-                <input
-                  id="newsletter1"
-                  type="email"
-                  className="form-control shadow-sm"
-                  placeholder="Email address"
-                  style={{ borderRadius: '8px' }}
-                />
-                <button
-                  className="btn btn-primary shadow-sm"
-                  type="button"
-                  style={{ borderRadius: '8px', transition: 'all 0.3s' }}
-                  onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
-                  onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
-                >
-                  Subscribe
-                </button>
-              </div>
-            </form>
-          </div>
         </div>
-        <div className="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-          <p>© 2025 Company, Inc. All rights reserved.</p>
-          <ul className="list-unstyled d-flex">
-            <li className="ms-3">
-              <a className="link-body-emphasis" href="#" aria-label="Instagram">
-                <svg className="bi" width={24} height={24}>
-                  <use xlinkHref="#instagram" />
-                </svg>
-              </a>
-            </li>
-            <li className="ms-3">
-              <a className="link-body-emphasis" href="#" aria-label="Facebook">
-                <svg className="bi" width={24} height={24}>
-                  <use xlinkHref="#facebook" />
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </footer>
-    </div>
-  );
-}
+      </div>
 
-// Main Page Component
-export default function HomePage() {
-  return (
-    <>
-      <Carousel />
-      <CardSection />
-      <Footer />
+      {/* ✅ Footer */}
+      <div
+        className="container-fluid mt-5"
+        style={{ backgroundColor: '#0d3b2e', boxShadow: '0 -5px 20px rgba(0,0,0,0.4)' }}
+      >
+        <footer className="py-5 text-light">
+          <div className="row">
+            {[1, 2, 3].map((_, index) => (
+              <div className="col-6 col-md-2 mb-3" key={index}>
+                <h5
+                  style={{
+                    color: '#d4af37',
+                    textShadow: '1px 1px 6px rgba(0,0,0,0.6)',
+                  }}
+                >
+                  Explore
+                </h5>
+                <ul className="nav flex-column">
+                  {['Home', 'Collections', 'Luxury Care', 'FAQs', 'About'].map((item, i) => (
+                    <li className="nav-item mb-2" key={i}>
+                      <a href="#" className="nav-link p-0 text-light">
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            <div className="col-md-5 offset-md-1 mb-3">
+              <form>
+                <h5 style={{ color: '#d4af37' }}>Subscribe to our Newsletter</h5>
+                <p className="text-light">Stay updated with our latest Rolex releases.</p>
+                <div className="d-flex flex-column flex-sm-row w-100 gap-2">
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder="Email address"
+                    style={{ borderRadius: '8px', border: '1px solid #d4af37' }}
+                  />
+                  <button
+                    className="btn"
+                    type="button"
+                    style={{
+                      backgroundColor: '#d4af37',
+                      color: '#0d3b2e',
+                      borderRadius: '8px',
+                      fontWeight: 'bold',
+                      transition: 'all 0.3s',
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
+                    onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div className="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top border-light">
+            <p>© 2025 Rolex Store, Inc. All rights reserved.</p>
+            <ul className="list-unstyled d-flex">
+              <li className="ms-3">
+                <a className="link-body-emphasis text-light" href="#">
+                  Instagram
+                </a>
+              </li>
+              <li className="ms-3">
+                <a className="link-body-emphasis text-light" href="#">
+                  Facebook
+                </a>
+              </li>
+            </ul>
+          </div>
+        </footer>
+      </div>
     </>
   );
 }
