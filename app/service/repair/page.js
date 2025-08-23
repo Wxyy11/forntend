@@ -24,15 +24,13 @@ export default function Repair() {
   const contacts = [
     {
       title: 'Facebook',
-      info: '/RolexStoreOfficial',
       icon: <FaFacebook />,
-      href: 'https://www.facebook.com/RolexStoreOfficial',
+      href: 'https://www.facebook.com/suphakit.ploydang',
     },
     {
       title: 'Instagram',
-      info: '@rolexstore',
       icon: <FaInstagram />,
-      href: 'https://www.instagram.com/rolexstore',
+      href: 'https://www.instagram.com/stxwitx',
     },
   ];
 
