@@ -3,6 +3,7 @@
 
 import { useEffect } from 'react';
 import Image from 'next/image';
+import { FaFacebook, FaInstagram } from 'react-icons/fa';
 
 export default function HomePage() {
   useEffect(() => {
@@ -109,7 +110,7 @@ export default function HomePage() {
                   transition: 'transform 0.3s, box-shadow 0.3s',
                   cursor: 'pointer',
                   border: '2px solid #d4af37',
-                  height: '450px', // กำหนดความสูงเท่ากัน
+                  height: '450px',
                   display: 'flex',
                   flexDirection: 'column',
                 }}
@@ -198,17 +199,35 @@ export default function HomePage() {
               </form>
             </div>
           </div>
+
+          {/* ✅ Social Links */}
           <div className="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top border-light">
             <p>© 2025 Rolex Store, Inc. All rights reserved.</p>
-            <ul className="list-unstyled d-flex">
+            <ul className="list-unstyled d-flex" style={{ fontSize: '1.5rem' }}>
               <li className="ms-3">
-                <a className="link-body-emphasis text-light" href="#">
-                  Instagram
+                <a
+                  href="https://www.instagram.com/stxwitx"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-light"
+                  style={{ transition: 'color 0.3s' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#d4af37')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = '#fff')}
+                >
+                  <FaInstagram />
                 </a>
               </li>
               <li className="ms-3">
-                <a className="link-body-emphasis text-light" href="#">
-                  Facebook
+                <a
+                  href="https://www.facebook.com/suphakit.ploydang"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-light"
+                  style={{ transition: 'color 0.3s' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#d4af37')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = '#fff')}
+                >
+                  <FaFacebook />
                 </a>
               </li>
             </ul>
